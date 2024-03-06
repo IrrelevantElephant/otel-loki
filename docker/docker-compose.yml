@@ -6,6 +6,8 @@ services:
     build:
       context: ..
       dockerfile: Api/Dockerfile
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otelcol:4317
 
   otelcol:
     image: otel/opentelemetry-collector-contrib:0.93.0
