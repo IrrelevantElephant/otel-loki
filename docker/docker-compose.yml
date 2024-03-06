@@ -18,3 +18,28 @@ services:
     ports:
       - "4317:4317"
       - "4318:4318"
+    depends_on:
+      grafana:
+        condition: service_started
+
+  loki:
+    image: grafana/loki:2.9.5
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      - ../grafana/:/etc/grafana/provisioning
+      - ../grafana/grafana.ini:/etc/grafana/grafana.ini
+    ports:
+      - "3000:3000"
+    depends_on:
+      loki:
+        condition: service_started
+  

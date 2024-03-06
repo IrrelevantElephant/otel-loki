@@ -7,6 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{3
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker\docker-compose.dcproj", "{C59C3092-43AA-417E-9C97-70A7C83FDBE4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "otel-collector", "otel-collector", "{35F4CA99-AB0F-42EC-8020-03EA0A0C5D80}"
+	ProjectSection(SolutionItems) = preProject
+		otel-collector\otelcol-config.yml = otel-collector\otelcol-config.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grafana", "grafana", "{E40601CE-7269-4CBA-B213-3AD79B72835F}"
+	ProjectSection(SolutionItems) = preProject
+		grafana\grafana.ini = grafana\grafana.ini
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "datasources", "datasources", "{E6774BDF-3423-4DAC-82F7-142895B56375}"
+	ProjectSection(SolutionItems) = preProject
+		grafana\datasources\datasources.yaml = grafana\datasources\datasources.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +39,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6774BDF-3423-4DAC-82F7-142895B56375} = {E40601CE-7269-4CBA-B213-3AD79B72835F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6B978C1-C475-4048-B5E9-16B19D0D768E}
 	EndGlobalSection
 EndGlobal
